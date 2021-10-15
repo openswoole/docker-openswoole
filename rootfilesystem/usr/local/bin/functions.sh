@@ -98,64 +98,6 @@ function install()
     cd "${old_pwd}"
 }
 
-# Install PHP-X.
-#
-# @param Version #.
-function installPHPX()
-{
-    old_pwd="$(pwd)"
-
-    download phpx "$1"
-
-    cd - # Last command in function download() is "cd -", so here we switch to the folder where the source code sits.
-    cd phpx
-    # Build phpx (bin)
-    ./build.sh
-
-    # Build libphpx.so
-    cmake .
-    make -j$(nproc)
-    make install
-    make clean
-    # Workaround for error loading libphpx:
-    #   error while loading shared libraries: "libphpx.so: cannot open shared object file: No such file or directory"
-    # The system already has /usr/local/lib listed in /etc/ld.so.conf.d/libc.conf, so running `ldconfig` fixes the
-    # problem (another option is to use $LD_LIBRARY_PATH).
-    ldconfig
-
-    cd "${old_pwd}"
-}
-
-# Install given Swoole extension if its version # is specified.
-#
-# @param Swoole extension name. e.g., zookeeper.
-# @param Version #.
-function installExtUsingPHPX()
-{
-    old_pwd="$(pwd)"
-
-    echo "Installing Swoole extension ${1} ..."
-    download ext-"$1" "${2}"
-    cd - # Last command in function download() is "cd -", so here we switch to the folder where the source code sits.
-    cd ext-"$1"
-    ../phpx/bin/phpx build -v -d
-    ../phpx/bin/phpx install
-
-    cd "${old_pwd}"
-}
-
-function cleanupSwoole()
-{
-    if [[ -d "${SWOOLE_SRC_DIR}/phpx" ]] ; then
-        rm -rf "${SWOOLE_SRC_DIR}/phpx"
-    fi
-    if [[ "true" = "${DEV_MODE}" ]] ; then
-        echo "Swoole is installed for development purpose with source code included in folder \"${SWOOLE_SRC_DIR}\"."
-    else
-        rm -rf "${SWOOLE_SRC_DIR}"
-    fi
-}
-
 function initSwooleDir()
 {
     if [[ -d /usr/src ]] ; then
