@@ -5,9 +5,9 @@
  * How to use the script:
  *    ./bin/generate-dockerfiles.php [swoole-version|swoole-branch]
  *    e.g.,
- *    ./bin/generate-dockerfiles.php 4.3.6
+ *    ./bin/generate-dockerfiles.php 4.7.1
  *    ./bin/generate-dockerfiles.php latest
- * Above command will have dockerfiles created for Swoole 4.3.6 under folder images/dockerfiles/.
+ * Above command will have dockerfiles created for Open Swoole 4.7.1 under folder images/dockerfiles/.
  */
 
 declare(strict_types=1);

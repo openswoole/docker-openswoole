@@ -1,1 +1,1 @@
-extension=swoole.so
+extension=openswoole.so

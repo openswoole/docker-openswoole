@@ -9,24 +9,13 @@ on:
 jobs:
   build_versioned_alpine_images:
     runs-on: ubuntu-latest
-    if: ${{ github.repository == 'swoole/docker-swoole' }}
+    if: ${{ github.repository == 'openswoole/docker-swoole' }}
     strategy:
       fail-fast: true
       matrix:
-        php: ["7.1", "7.2", "7.3", "7.4", "8.0"]
-        swoole44:
-          - ${{ contains(github.ref, '4.4.') }}
-        swoole46:
-          - ${{ contains(github.ref, '4.6.') }}
+        php: ["7.2", "7.3", "7.4", "8.0"]
         swoole47:
           - ${{ contains(github.ref, '4.7.') }}
-        exclude:
-          - php: "8.0"
-            swoole44: true
-          - php: "7.1"
-            swoole46: true
-          - php: "7.1"
-            swoole47: true
 
     name: The Alpine image for PHP ${{ matrix.php }}
 
@@ -59,20 +48,20 @@ jobs:
           major_version=${branch_name%.*}
           if egrep -q '^status\:\s*"under development"\s*($|\#)' "$(pwd)/config/${branch_name}.yml" ; then
             if [ ${{ matrix.php }} == '8.0' ] ; then
-              echo "::set-output name=full_names::phpswoole/swoole:${branch_name}-php${{ matrix.php }}-alpine,phpswoole/swoole:${major_version}-php${{ matrix.php }}-alpine,phpswoole/swoole:${major_version}-alpine,phpswoole/swoole:latest-alpine"
+              echo "::set-output name=full_names::openswoole/swoole:${branch_name}-php${{ matrix.php }}-alpine,openswoole/swoole:${major_version}-php${{ matrix.php }}-alpine,openswoole/swoole:${major_version}-alpine,openswoole/swoole:latest-alpine"
             else
               if [ ${{ matrix.php }} == '7.4' ] && [ ${major_version} == '4.4' ] ; then
-                echo "::set-output name=full_names::phpswoole/swoole:${branch_name}-php${{ matrix.php }}-alpine,phpswoole/swoole:${major_version}-php${{ matrix.php }}-alpine,phpswoole/swoole:${major_version}-alpine"
+                echo "::set-output name=full_names::openswoole/swoole:${branch_name}-php${{ matrix.php }}-alpine,openswoole/swoole:${major_version}-php${{ matrix.php }}-alpine,openswoole/swoole:${major_version}-alpine"
               else
-                echo "::set-output name=full_names::phpswoole/swoole:${branch_name}-php${{ matrix.php }}-alpine,phpswoole/swoole:${major_version}-php${{ matrix.php }}-alpine"
+                echo "::set-output name=full_names::openswoole/swoole:${branch_name}-php${{ matrix.php }}-alpine,openswoole/swoole:${major_version}-php${{ matrix.php }}-alpine"
               fi
             fi
           else
-              echo "::set-output name=full_names::phpswoole/swoole:${branch_name}-php${{ matrix.php }}-alpine"
+              echo "::set-output name=full_names::openswoole/swoole:${branch_name}-php${{ matrix.php }}-alpine"
           fi
 
       -
-        name: Build and push Docker image phpswoole/swoole:${{ steps.params.outputs.branch_name }}-php${{ matrix.php }}-alpine
+        name: Build and push Docker image openswoole/swoole:${{ steps.params.outputs.branch_name }}-php${{ matrix.php }}-alpine
         id: docker_build
         uses: docker/build-push-action@v2
         with:
@@ -83,5 +72,5 @@ jobs:
           tags: ${{ steps.params.outputs.full_names }}
 
       -
-        name: Image digest of phpswoole/swoole:${{ steps.params.outputs.branch_name }}-php${{ matrix.php }}-alpine
+        name: Image digest of openswoole/swoole:${{ steps.params.outputs.branch_name }}-php${{ matrix.php }}-alpine
         run: echo ${{ steps.docker_build.outputs.digest }}

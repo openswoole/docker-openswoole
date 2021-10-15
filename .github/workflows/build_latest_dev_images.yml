@@ -8,7 +8,7 @@ on:
 jobs:
   build_latest_images:
     runs-on: ubuntu-latest
-    if: ${{ github.repository == 'swoole/docker-swoole' }}
+    if: ${{ github.repository == 'openswoole/docker-swoole' }}
     strategy:
       fail-fast: true
       matrix:
@@ -37,10 +37,10 @@ jobs:
       -
         name: Set full names of the Docker image
         id: set_full_names
-        run: echo "::set-output name=full_names::phpswoole/swoole:php${{ matrix.php }}-dev"
+        run: echo "::set-output name=full_names::openswoole/swoole:php${{ matrix.php }}-dev"
 
       -
-        name: Build and push Docker image phpswoole/swoole:php${{ matrix.php }}-dev
+        name: Build and push Docker image openswoole/swoole:php${{ matrix.php }}-dev
         id: docker_build
         uses: docker/build-push-action@v2
         with:
@@ -52,5 +52,5 @@ jobs:
           build-args: DEV_MODE=true
 
       -
-        name: Image digest of phpswoole/swoole:php${{ matrix.php }}-dev
+        name: Image digest of openswoole/swoole:php${{ matrix.php }}-dev
         run: echo ${{ steps.docker_build.outputs.digest }}

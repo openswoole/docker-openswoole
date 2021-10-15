@@ -11,7 +11,7 @@ version: '3'
 
 services:
   app:
-    image: phpswoole/swoole
+    image: openswoole/swoole
     environment:
       AUTORELOAD_PROGRAMS: "swoole"
       AUTORELOAD_ANY_FILES: 0

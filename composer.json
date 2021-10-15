@@ -1,7 +1,7 @@
 {
-  "name": "swoole/docker",
-  "description": "Official Docker image packing for Swoole.",
-  "homepage": "https://www.swoole.com",
+  "name": "openswoole/docker",
+  "description": "Docker image packing for Open Swoole",
+  "homepage": "https://www.swoole.co.uk",
   "license": "Apache-2.0",
   "require-dev": {
     "php": ">=7.4",

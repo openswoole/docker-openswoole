@@ -1,3 +1,3 @@
-FROM phpswoole/swoole
+FROM openswoole/swoole
 
 COPY ./rootfilesystem/ /
