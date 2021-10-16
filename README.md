@@ -1,6 +1,6 @@
 # Docker Image for Open Swoole
 
-> This repo works with Open Swoole since release version v4.7.1.
+> This repo works with Open Swoole since release version v4.7.1. WIP
 
 [![Tests](https://github.com/openswoole/docker-swoole/workflows/Tests/badge.svg)](https://github.com/openswoole/docker-swoole/actions)
 [![Docker Pulls](https://img.shields.io/docker/pulls/openswoole/swoole.svg)](https://hub.docker.com/r/openswoole/swoole)
