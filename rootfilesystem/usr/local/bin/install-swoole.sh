@@ -58,3 +58,5 @@ if hash docker-php-ext-enable 2>/dev/null ; then
 else
     echo NOTICE: PHP extension openswoole is not enabled. Please have it enabled first.
 fi
+
+cleanupSwoole
