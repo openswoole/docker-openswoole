@@ -1,5 +1,5 @@
 This example shows how to debug script _/var/www/test.php_ using [strace](https://strace.io). Strace is
-included in image _phpswoole/swoole:latest-dev_ (and any image with "-dev" postfixed to its image tag).
+included in image _openswoole/swoole:latest-dev_ (and any image with "-dev" postfixed to its image tag).
 
 First, start a Docker container by executing following command under same directory of this file:
 

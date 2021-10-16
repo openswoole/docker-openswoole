@@ -23,7 +23,6 @@ class Dockerfile
 
     protected const ALPINE_VERSIONS = [
         // PHP major version => Alpine version,
-        '7.1' => '3.10',
         '7.2' => '3.12',
         '7.3' => '3.13',
         '7.4' => '3.13',

@@ -1,6 +1,6 @@
 # A sample configuration file for generating Dockerfiles. You may find configuration files under folder images/config/.
 
-# Base name of the configuration file must be of a specific version of image phpswoole/swoole, e.g.,
+# Base name of the configuration file must be of a specific version of image openswoole/swoole, e.g.,
 #   * 4.3.6
 #   * 4.4.6
 
@@ -13,7 +13,6 @@
 #     The tag is not actively maintained and is not suggested to be used any more.
 status: "under development"
 php: # List of PHP versions to build for.
-  - "7.1.29"
   - "7.2.19"
   - "7.3.6"
 image:

@@ -2,6 +2,6 @@ version: '3'
 
 services:
   app:
-    image: phpswoole/swoole
+    image: openswoole/swoole
     ports:
       - 80:9501

@@ -1,5 +1,5 @@
 This example shows how to debug script _/var/www/test.php_ using `gdb`. `gdb` is included in image
-_phpswoole/swoole:latest-dev_ (and any image with "-dev" postfixed to its image tag).
+_openswoole/swoole:latest-dev_ (and any image with "-dev" postfixed to its image tag).
 
 First, start a Docker container by executing following command under same directory of this file:
 

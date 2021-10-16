@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# This script is used to install Swoole in the official Swoole image.
+# This script is used to install Swoole in the Open Swoole image.
 #
 # How to use this script?
 #     ./install-swoole.sh [SWOOLE_VERSION] [Swoole installation options]
@@ -54,9 +54,7 @@ else
 fi
 install swoole-src "${SWOOLE_VERSION}" "$@" ${DEV_OPTIONS}
 if hash docker-php-ext-enable 2>/dev/null ; then
-    docker-php-ext-enable swoole
+    docker-php-ext-enable openswoole
 else
-    echo NOTICE: PHP extension swoole is not enabled. Please have it enabled first.
+    echo NOTICE: PHP extension openswoole is not enabled. Please have it enabled first.
 fi
-
-cleanupSwoole
