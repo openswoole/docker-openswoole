@@ -98,6 +98,15 @@ function install()
     cd "${old_pwd}"
 }
 
+function cleanupSwoole()
+{
+    if [[ "true" = "${DEV_MODE}" ]] ; then
+        echo "Swoole is installed for development purpose with source code included in folder \"${SWOOLE_SRC_DIR}\"."
+    else
+        rm -rf "${SWOOLE_SRC_DIR}"
+    fi
+}
+
 function initSwooleDir()
 {
     if [[ -d /usr/src ]] ; then
