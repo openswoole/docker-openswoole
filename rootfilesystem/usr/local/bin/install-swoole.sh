@@ -54,7 +54,7 @@ else
 fi
 install swoole-src "${SWOOLE_VERSION}" "$@" ${DEV_OPTIONS}
 if hash docker-php-ext-enable 2>/dev/null ; then
-    docker-php-ext-enable openswoole
+    docker-php-ext-enable --ini-name zzz-docker-php-ext-openswoole.ini openswoole
 else
     echo NOTICE: PHP extension openswoole is not enabled. Please have it enabled first.
 fi
