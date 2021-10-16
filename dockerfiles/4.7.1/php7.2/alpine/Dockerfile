@@ -17,7 +17,7 @@ RUN \
         --enable-mysqlnd \
         --enable-openssl \
         --enable-sockets --enable-swoole-curl --enable-swoole-json && \
-    docker-php-ext-install -j$(nproc) openswoole && \
+    docker-php-ext-install -j$(nproc) --ini-name zzz-docker-php-ext-openswoole.ini openswoole && \
     rm -f swoole.tar.gz $HOME/.composer/*-old.phar && \
     docker-php-source delete && \
     apk del .build-deps
