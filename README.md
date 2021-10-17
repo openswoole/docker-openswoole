@@ -133,7 +133,7 @@ Here is a list of the examples under folder "_examples/_":
 
 The `openswoole/swoole` images come in three flavors, each designed for a specific use case. **In production environment, we suggest using the Alpine images.**
 
-## 1. `latest`, `<swoole-version>`, and `<swoole-version>-php<php-version>`
+### 1. `latest`, `<swoole-version>`, and `<swoole-version>-php<php-version>`
 
 * `openswoole/swoole:latest`
 * `openswoole/swoole:4.7`
@@ -142,7 +142,7 @@ The `openswoole/swoole` images come in three flavors, each designed for a specif
 
 This variant is based on the _php:cli_ images, with a few changes. It uses _Supervisord_ to manage booting processes, and has _Composer_ preinstalled.
 
-## 2. `latest-dev`, `<swoole-version>-dev`, and `<swoole-version>-php<php-version>-dev`
+### 2. `latest-dev`, `<swoole-version>-dev`, and `<swoole-version>-php<php-version>-dev`
 
 * `openswoole/swoole:latest-dev`
 * `openswoole/swoole:4.7-dev`
@@ -152,7 +152,7 @@ This variant is based on the _php:cli_ images, with a few changes. It uses _Supe
 This variant is very similar to the previous one, but it has extra tools added for testing, debugging, and monitoring purpose,
 including [gdb](https://www.gnu.org/s/gdb), git, lsof, [strace](https://strace.io), [tcpdump](https://www.tcpdump.org), [Valgrind](http://www.valgrind.org), and vim.
 
-## 3. `latest-alpine`, `<swoole-version>-alpine`, and `<swoole-version>-php<php-version>-alpine`
+### 3. `latest-alpine`, `<swoole-version>-alpine`, and `<swoole-version>-php<php-version>-alpine`
 
 * `openswoole/swoole:latest-alpine`
 * `openswoole/swoole:4.7-alpine`
