@@ -6,6 +6,10 @@ ENV TERM            xterm-color
 ARG DEV_MODE
 ENV DEV_MODE $DEV_MODE
 
+ENV TINI_VERSION v0.19.0
+ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
+RUN chmod +x /tini
+
 COPY ./rootfilesystem/ /
 
 RUN \
@@ -29,7 +33,7 @@ RUN \
     mkdir -p /var/log/supervisor && \
     rm -rf /var/lib/apt/lists/* $HOME/.composer/*-old.phar /usr/bin/qemu-*-static
 
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/tini", "-g", "--", "/entrypoint.sh"]
 CMD []
 
 WORKDIR "/var/www/"
