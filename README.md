@@ -5,9 +5,9 @@
 [![License](https://img.shields.io/badge/license-apache2-blue.svg)](https://github.com/openswoole/docker-swoole/blob/master/LICENSE)
 
 This image is built for general-purpose. We have different examples included in this Git repository to help developers
-to get familiar with the image and _Swoole_.
+to get familiar with the image and _OpenSwoole_.
 
-You can get the image from [here](https://hub.docker.com/r/openswoole/swoole).
+You can get the image from [Docker Hub](https://hub.docker.com/r/openswoole/swoole).
 
 Table of Contents
 =================
@@ -30,7 +30,7 @@ Table of Contents
 * Easy to manage booting scripts in Docker.
 * Allow running PHP scripts and other commands directly in different environments (including ECS).
 * Use one root filesystem for simplicity (one Docker `COPY` command only in dockerfiles).
-* _Composer v2_ for Swoole 4.7.2 and after).
+* _Composer v2_ for OpenSwoole 4.7.2 and after).
 * Built for different architectures.
 * Support auto-reloading for local development.
 * Support code debugging for local development.
