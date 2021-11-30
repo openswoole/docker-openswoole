@@ -9,7 +9,7 @@ to get familiar with the image and _OpenSwoole_.
 
 You can get the image from [Docker Hub](https://hub.docker.com/r/openswoole/swoole).
 
-> Notice: you should not use the `:latest` version which is complied with unstable master branch under development, but use latest released version `:4.7.2` 
+> Notice: you should not use the `:latest` version which is complied with unstable master branch under development, but use latest released version `:4.1.1` 
 
 Table of Contents
 =================
