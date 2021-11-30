@@ -20,6 +20,7 @@ RUN \
     apt-get install -y             \
         inotify-tools              \
         libcurl4-openssl-dev       \
+        libpq-dev                  \
         libssl-dev                 \
         supervisor                 \
         unzip                      \
@@ -29,7 +30,7 @@ RUN \
         --enable-http2   \
         --enable-mysqlnd \
         --enable-openssl \
-        --enable-sockets --enable-swoole-curl --enable-swoole-json && \
+        --enable-sockets --enable-swoole-curl --enable-swoole-json --with-postgres && \
     mkdir -p /var/log/supervisor && \
     rm -rf /var/lib/apt/lists/* $HOME/.composer/*-old.phar /usr/bin/qemu-*-static
 

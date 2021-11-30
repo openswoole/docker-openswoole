@@ -1,4 +1,4 @@
-FROM php:8.1.0RC6-cli
+FROM php:8.1-cli
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV TERM            xterm-color
@@ -20,6 +20,7 @@ RUN \
     apt-get install -y             \
         inotify-tools              \
         libcurl4-openssl-dev       \
+        libpq-dev                  \
         libssl-dev                 \
         supervisor                 \
         unzip                      \
@@ -29,7 +30,7 @@ RUN \
         --enable-http2   \
         --enable-mysqlnd \
         --enable-openssl \
-        --enable-sockets --enable-swoole-curl --enable-swoole-json && \
+        --enable-sockets --enable-swoole-curl --enable-swoole-json --with-postgres && \
     mkdir -p /var/log/supervisor && \
     rm -rf /var/lib/apt/lists/* $HOME/.composer/*-old.phar /usr/bin/qemu-*-static
 
