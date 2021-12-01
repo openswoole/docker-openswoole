@@ -27,7 +27,7 @@ class Dockerfile
         '7.3' => '3.13',
         '7.4' => '3.13',
         '8.0' => '3.13',
-        '8.1' => '3.13',
+        '8.1' => '3.15',
     ];
 
     protected string $basePath;
@@ -233,6 +233,12 @@ class Dockerfile
             $optionJson = false;
         }
 
+        if (($this->getSwooleVersion() === 'latest') || (version_compare($this->getSwooleVersion(), '4.8.0') >= 0)) {
+            $optionPostgres = true;
+        } else {
+            $optionPostgres = false;
+        }
+
         return array_merge(
             $this->getConfig()['image'],
             [
@@ -241,6 +247,7 @@ class Dockerfile
                 'swoole_version' => $this->getSwooleVersion(),
                 'option_curl'    => $optionCurl,
                 'option_json'    => $optionJson,
+                'option_postgres' => $optionPostgres,
             ]
         );
     }

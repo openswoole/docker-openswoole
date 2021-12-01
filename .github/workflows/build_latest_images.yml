@@ -2,7 +2,7 @@ name: Build Latest Images
 
 on:
   schedule:
-    - cron: '47 4 * * *'
+    - cron: '47 3 * * *'
   workflow_dispatch:
 
 jobs:
@@ -12,7 +12,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        php: ["7.2", "7.3", "7.4", "8.0"]
+        php: ["7.2", "7.3", "7.4", "8.0", "8.1"]
 
     steps:
       -
