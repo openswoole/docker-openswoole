@@ -3,6 +3,13 @@
 [![Tests](https://github.com/openswoole/docker-swoole/workflows/Tests/badge.svg)](https://github.com/openswoole/docker-swoole/actions)
 [![Docker Pulls](https://img.shields.io/docker/pulls/openswoole/swoole.svg)](https://hub.docker.com/r/openswoole/swoole)
 [![License](https://img.shields.io/badge/license-apache2-blue.svg)](https://github.com/openswoole/docker-swoole/blob/master/LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/openswoole/docker-swoole)](https://github.com/openswoole/docker-swoole/stargazers)
+[![Twitter](https://img.shields.io/twitter/url/https/twitter.com/openswoole.svg?style=social&label=Follow%20%40OpenSwoole)](https://twitter.com/openswoole)
+
+[![Versioned Images](https://github.com/openswoole/docker-swoole/actions/workflows/build_versioned_images.yml/badge.svg)](https://github.com/openswoole/docker-swoole/actions/workflows/build_versioned_images.yml)
+[![Versioned Alpine Images](https://github.com/openswoole/docker-swoole/actions/workflows/build_versioned_alpine_images.yml/badge.svg)](https://github.com/openswoole/docker-swoole/actions/workflows/build_versioned_alpine_images.yml)
+[![Latest Images](https://github.com/openswoole/docker-swoole/actions/workflows/build_latest_images.yml/badge.svg)](https://github.com/openswoole/docker-swoole/actions/workflows/build_latest_images.yml)
+[![Latest Alpine Images](https://github.com/openswoole/docker-swoole/actions/workflows/build_latest_alpine_images.yml/badge.svg)](https://github.com/openswoole/docker-swoole/actions/workflows/build_latest_alpine_images.yml)
 
 This image is built for general-purpose. We have different examples included in this Git repository to help developers
 to get familiar with the image and _OpenSwoole_.
