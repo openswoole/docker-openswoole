@@ -20,6 +20,7 @@ class Dockerfile
 {
     protected const ALPINE = 'alpine';
     protected const CLI = 'cli';
+    protected const LATEST_VERSION = '4.8.1';
 
     protected const ALPINE_VERSIONS = [
         // PHP major version => Alpine version,
@@ -245,6 +246,7 @@ class Dockerfile
                 'php_version'    => $phpVersion,
                 'alpine_version' => $this->getAlpineVersion($phpVersion),
                 'swoole_version' => $this->getSwooleVersion(),
+                'latest_version' => self::LATEST_VERSION,
                 'option_curl'    => $optionCurl,
                 'option_json'    => $optionJson,
                 'option_postgres' => $optionPostgres,
