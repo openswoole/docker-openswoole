@@ -5,8 +5,8 @@ RUN \
     chmod +x /usr/bin/composer                                                                     && \
     composer self-update --clean-backups {{ composer.version }}                                    && \
     apk update && \
-    apk add --no-cache libstdc++ && \
-    apk add --no-cache --virtual .build-deps $PHPIZE_DEPS {% if option_curl == true  %}curl-dev {% endif %}{% if option_postgres == true  %}postgresql-dev {% endif %}openssl-dev pcre-dev pcre2-dev zlib-dev && \
+    apk add --no-cache libstdc++ {% if option_postgres == true  %}postgresql-dev libpq {% endif %}&& \
+    apk add --no-cache --virtual .build-deps $PHPIZE_DEPS {% if option_curl == true  %}curl-dev {% endif %}openssl-dev pcre-dev pcre2-dev zlib-dev && \
     docker-php-ext-install sockets && \
     docker-php-source extract && \
     mkdir /usr/src/php/ext/openswoole && \
