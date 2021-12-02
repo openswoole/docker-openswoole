@@ -1,4 +1,4 @@
-FROM php:8.0-cli
+FROM php:8.1.0-cli
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV TERM            xterm-color
@@ -15,22 +15,20 @@ COPY ./rootfilesystem/ /
 RUN \
     curl -sfL https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer && \
     chmod +x /usr/bin/composer                                                                     && \
-    composer self-update 2.0.8                                                    && \
+    composer self-update 2.1.6                                                    && \
     apt-get update              && \
     apt-get install -y             \
-        inotify-tools              \
         libcurl4-openssl-dev       \
-        libpq-dev                  \
         libssl-dev                 \
         supervisor                 \
         unzip                      \
         zlib1g-dev                 \
         --no-install-recommends && \
-    install-swoole.sh 4.8.1 \
+    install-swoole.sh 4.7.1 \
         --enable-http2   \
         --enable-mysqlnd \
         --enable-openssl \
-        --enable-sockets --enable-swoole-curl --enable-swoole-json --with-postgres && \
+        --enable-sockets --enable-swoole-curl --enable-swoole-json && \
     mkdir -p /var/log/supervisor && \
     rm -rf /var/lib/apt/lists/* $HOME/.composer/*-old.phar /usr/bin/qemu-*-static
 

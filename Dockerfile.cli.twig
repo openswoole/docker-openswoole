@@ -43,7 +43,7 @@ RUN \
         {%~ endif %}
     {%~ endfor %}
 {%~ endif %}
-    install-swoole.sh {% if swoole_version == "latest" %}master{% else %}{{ swoole_version }}{% endif %} \
+    install-swoole.sh {% if swoole_version == "latest" %}{{ latest_version }}{% else %}{{ swoole_version }}{% endif %} \
         --enable-http2   \
         --enable-mysqlnd \
         --enable-openssl \
