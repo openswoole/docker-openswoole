@@ -16,7 +16,7 @@ to get familiar with the image and _OpenSwoole_.
 
 You can get the image from [Docker Hub](https://hub.docker.com/r/openswoole/swoole).
 
-> Latest released version `:4.9.0` with PHP 8.1
+> Latest released version `:4.9.1` with PHP 8.1
 
 Table of Contents
 =================
@@ -145,7 +145,7 @@ The `openswoole/swoole` images come in three flavors, each designed for a specif
 * `openswoole/swoole:latest`
 * `openswoole/swoole:4.9`
 * `openswoole/swoole:4.9-php8.0`
-* `openswoole/swoole:4.9.0-php8.0`
+* `openswoole/swoole:4.9.1-php8.0`
 
 This variant is based on the _php:cli_ images, with a few changes. It uses _Supervisord_ to manage booting processes, and has _Composer_ preinstalled.
 
@@ -154,7 +154,7 @@ This variant is based on the _php:cli_ images, with a few changes. It uses _Supe
 * `openswoole/swoole:latest-dev`
 * `openswoole/swoole:4.9-dev`
 * `openswoole/swoole:4.9-php8.0-dev`
-* `openswoole/swoole:4.9.0-php8.0-dev`
+* `openswoole/swoole:4.9.1-php8.0-dev`
 
 This variant is very similar to the previous one, but it has extra tools added for testing, debugging, and monitoring purpose,
 including [gdb](https://www.gnu.org/s/gdb), git, lsof, [strace](https://strace.io), [tcpdump](https://www.tcpdump.org), [Valgrind](http://www.valgrind.org), and vim.
@@ -164,12 +164,12 @@ including [gdb](https://www.gnu.org/s/gdb), git, lsof, [strace](https://strace.i
 * `openswoole/swoole:latest-alpine`
 * `openswoole/swoole:4.9-alpine`
 * `openswoole/swoole:4.9-php8.0-alpine`
-* `openswoole/swoole:4.9.0-php8.0-alpine`
+* `openswoole/swoole:4.9.1-php8.0-alpine`
 
 You can use this variant in the same way as using the _php:alpine_ image, except that we changed the default working directory to _/var/www_.
 Also, we have _Composer_ preinstalled in the image.
 
-Note: We don't have development tools built in for Alpine images. There is no Docker images like `openswoole/swoole:4.9.0-php8.1-alpine-dev`.
+Note: We don't have development tools built in for Alpine images. There is no Docker images like `openswoole/swoole:4.9.1-php8.1-alpine-dev`.
 
 # Supported Tags and Respective `Dockerfile` Links
 
@@ -207,22 +207,22 @@ follow these three steps.
 
 ```bash
 ./bin/generate-dockerfiles.php latest # Generate dockerfiles to build images from the master branch of Open Swoole.
-./bin/generate-dockerfiles.php 4.9.0  # Generate dockerfiles to build images for Open Swoole 4.8.0.
+./bin/generate-dockerfiles.php 4.9.1  # Generate dockerfiles to build images for Open Swoole 4.8.0.
 ```
 
 **3**. Build Docker images with commands like:
 
 ```bash
 docker build -t openswoole/swoole                     -f dockerfiles/latest/php8.0/cli/Dockerfile   .
-docker build -t openswoole/swoole:4.9.0-php8.0        -f dockerfiles/4.9.0/php8.0/cli/Dockerfile    .
-docker build -t openswoole/swoole:4.9.0-php8.0-alpine -f dockerfiles/4.9.0/php8.0/alpine/Dockerfile .
+docker build -t openswoole/swoole:4.9.1-php8.0        -f dockerfiles/4.9.1/php8.0/cli/Dockerfile    .
+docker build -t openswoole/swoole:4.9.1-php8.0-alpine -f dockerfiles/4.9.1/php8.0/alpine/Dockerfile .
 ```
 
 To build development images (where extra tools are included), add an argument _DEV_MODE_:
 
 ```bash
 docker build --build-arg DEV_MODE=true -t openswoole/swoole:latest-dev       -f dockerfiles/latest/php8.0/cli/Dockerfile .
-docker build --build-arg DEV_MODE=true -t openswoole/swoole:4.9.0-php8.0-dev -f dockerfiles/4.9.0/php8.0/cli/Dockerfile  .
+docker build --build-arg DEV_MODE=true -t openswoole/swoole:4.9.1-php8.0-dev -f dockerfiles/4.9.1/php8.0/cli/Dockerfile  .
 ```
 
 # Credits
