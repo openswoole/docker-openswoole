@@ -16,7 +16,7 @@ to get familiar with the image and _OpenSwoole_.
 
 You can get the image from [Docker Hub](https://hub.docker.com/r/openswoole/swoole).
 
-> Latest released version `:4.9.1` with PHP 8.1
+> Latest released version `:4.10.0` with PHP 8.1
 
 Table of Contents
 =================
@@ -55,14 +55,14 @@ Same as in the official PHP image, most PHP extensions can be installed/configur
 
 ```Dockerfile
 # To install the MySQL extensions.
-FROM openswoole/swoole:4.9-php7.4-alpine
+FROM openswoole/swoole:4.10-php7.4-alpine
 
 RUN docker-php-ext-install mysqli pdo_mysql
 ```
 
 ```Dockerfile
 # To install the Redis extension.
-FROM openswoole/swoole:4.9-php7.4-alpine
+FROM openswoole/swoole:4.10-php7.4-alpine
 
 RUN set -ex \
     && pecl update-channels \
@@ -72,7 +72,7 @@ RUN set -ex \
 
 ```Dockerfile
 # To install the Couchbase extension.
-FROM openswoole/swoole:4.9-php7.4-alpine
+FROM openswoole/swoole:4.10-php7.4-alpine
 
 RUN set -ex \
     && apk update \
