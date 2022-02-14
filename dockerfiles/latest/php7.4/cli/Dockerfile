@@ -15,7 +15,7 @@ COPY ./rootfilesystem/ /
 RUN \
     curl -sfL https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer && \
     chmod +x /usr/bin/composer                                                                     && \
-    composer self-update 2.0.8                                                    && \
+    composer self-update 2.1.6                                                    && \
     apt-get update              && \
     apt-get install -y             \
         inotify-tools              \
@@ -26,7 +26,7 @@ RUN \
         unzip                      \
         zlib1g-dev                 \
         --no-install-recommends && \
-    install-swoole.sh 4.10.0 \
+    install-swoole.sh v4.10.0 \
         --enable-http2   \
         --enable-mysqlnd \
         --enable-openssl \
