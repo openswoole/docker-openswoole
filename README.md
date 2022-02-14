@@ -175,7 +175,7 @@ Note: We don't have development tools built in for Alpine images. There is no Do
 
 ## Versioned images (based on stable releases of Swoole)
 
-### Open Swoole 4.8
+### Open Swoole 4.10
 
 | PHP Versions | Default Images | Dev Images | Alpine Images |
 |-|-|-|-|
@@ -207,7 +207,7 @@ follow these three steps.
 
 ```bash
 ./bin/generate-dockerfiles.php latest # Generate dockerfiles to build images from the master branch of Open Swoole.
-./bin/generate-dockerfiles.php 4.9.1  # Generate dockerfiles to build images for Open Swoole 4.8.0.
+./bin/generate-dockerfiles.php 4.10.0  # Generate dockerfiles to build images for Open Swoole 4.10.0.
 ```
 
 **3**. Build Docker images with commands like:

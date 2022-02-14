@@ -13,7 +13,6 @@
 .DS_Store
 
 # Ignore 3rd party tools
-/composer.lock
 /composer.phar
 /vendor/*
 
