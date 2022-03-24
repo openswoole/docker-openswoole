@@ -1,4 +1,4 @@
-FROM php:8.1-cli
+FROM php:7.2.34-cli
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV TERM            xterm-color
@@ -18,7 +18,6 @@ RUN \
     composer self-update 2.1.6                                                    && \
     apt-get update              && \
     apt-get install -y             \
-        inotify-tools              \
         libcurl4-openssl-dev       \
         libpq-dev                  \
         libssl-dev                 \
@@ -26,7 +25,7 @@ RUN \
         unzip                      \
         zlib1g-dev                 \
         --no-install-recommends && \
-    install-swoole.sh v4.10.0 \
+    install-swoole.sh 4.11.0 \
         --enable-http2   \
         --enable-mysqlnd \
         --enable-openssl \

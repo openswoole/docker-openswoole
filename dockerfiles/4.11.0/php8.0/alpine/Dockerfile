@@ -1,4 +1,4 @@
-FROM php:8.1-cli-alpine3.15
+FROM php:8.0.9-cli-alpine3.13
 
 RUN \
     curl -sfL https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer && \
@@ -10,7 +10,7 @@ RUN \
     docker-php-ext-install sockets && \
     docker-php-source extract && \
     mkdir /usr/src/php/ext/openswoole && \
-    curl -sfL https://github.com/openswoole/swoole-src/archive/v4.10.0.tar.gz -o swoole.tar.gz && \
+    curl -sfL https://github.com/openswoole/swoole-src/archive/v4.11.0.tar.gz -o swoole.tar.gz && \
     tar xfz swoole.tar.gz --strip-components=1 -C /usr/src/php/ext/openswoole && \
     docker-php-ext-configure openswoole \
         --enable-http2   \
