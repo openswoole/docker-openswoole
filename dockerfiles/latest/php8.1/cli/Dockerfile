@@ -26,7 +26,7 @@ RUN \
         unzip                      \
         zlib1g-dev                 \
         --no-install-recommends && \
-    install-swoole.sh v4.10.0 \
+    install-swoole.sh v4.11.0 \
         --enable-http2   \
         --enable-mysqlnd \
         --enable-openssl \
