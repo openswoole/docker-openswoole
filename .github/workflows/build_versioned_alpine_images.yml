@@ -10,7 +10,7 @@ on:
 jobs:
   build_versioned_alpine_images:
     runs-on: ubuntu-latest
-    if: ${{ github.repository == 'openswoole/docker-swoole' }}
+    if: ${{ github.repository == 'openswoole/docker-openswoole' }}
     strategy:
       fail-fast: true
       matrix:
