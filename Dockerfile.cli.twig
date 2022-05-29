@@ -7,7 +7,7 @@ ARG DEV_MODE
 ENV DEV_MODE $DEV_MODE
 
 ENV TINI_VERSION v0.19.0
-RUN dpkgArch="$(dpkg --print-architecture)" && curl -s -o /tini https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini-${dpkgArch}
+RUN dpkgArch="$(dpkg --print-architecture)" && curl -s -o -L /tini https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini-${dpkgArch}
 RUN chmod +x /tini
 
 COPY ./rootfilesystem/ /
