@@ -20,7 +20,7 @@ class Dockerfile
 {
     protected const ALPINE = 'alpine';
     protected const CLI = 'cli';
-    protected const LATEST_VERSION = 'v4.12.1';
+    protected const LATEST_VERSION = 'v22.0.0';
 
     protected const ALPINE_VERSIONS = [
         // PHP major version => Alpine version,
