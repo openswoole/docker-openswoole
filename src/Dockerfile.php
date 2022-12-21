@@ -20,13 +20,14 @@ class Dockerfile
 {
     protected const ALPINE = 'alpine';
     protected const CLI = 'cli';
-    protected const LATEST_VERSION = 'v4.12.0';
+    protected const LATEST_VERSION = 'v4.12.1';
 
     protected const ALPINE_VERSIONS = [
         // PHP major version => Alpine version,
         '7.4' => '3.16',
         '8.0' => '3.16',
         '8.1' => '3.16',
+        '8.2' => '3.16',
     ];
 
     protected string $basePath;

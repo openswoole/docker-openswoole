@@ -5,12 +5,13 @@ RUN \
     chmod +x /usr/bin/composer                                                                     && \
     composer self-update --clean-backups 2.1.6                                    && \
     apk update && \
+    apk add --no-cache linux-headers && \
     apk add --no-cache libstdc++ postgresql-dev libpq && \
     apk add --no-cache --virtual .build-deps $PHPIZE_DEPS curl-dev openssl-dev pcre-dev pcre2-dev zlib-dev && \
     docker-php-ext-install sockets && \
     docker-php-source extract && \
     mkdir /usr/src/php/ext/openswoole && \
-    curl -sfL https://github.com/openswoole/swoole-src/archive/v4.12.0.tar.gz -o swoole.tar.gz && \
+    curl -sfL https://github.com/openswoole/swoole-src/archive/v4.12.1.tar.gz -o swoole.tar.gz && \
     tar xfz swoole.tar.gz --strip-components=1 -C /usr/src/php/ext/openswoole && \
     docker-php-ext-configure openswoole \
         --enable-http2   \
