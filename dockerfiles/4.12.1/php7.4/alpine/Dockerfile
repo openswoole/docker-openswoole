@@ -5,6 +5,7 @@ RUN \
     chmod +x /usr/bin/composer                                                                     && \
     composer self-update --clean-backups 2.1.6                                    && \
     apk update && \
+    apk add --no-cache linux-headers && \
     apk add --no-cache libstdc++ postgresql-dev libpq && \
     apk add --no-cache --virtual .build-deps $PHPIZE_DEPS curl-dev openssl-dev pcre-dev pcre2-dev zlib-dev && \
     docker-php-ext-install sockets && \
