@@ -11,15 +11,15 @@ RUN \
     docker-php-ext-install sockets && \
     docker-php-source extract && \
     mkdir /usr/src/php/ext/openswoole && \
-    curl -sfL https://github.com/openswoole/swoole-src/archive/v22.1.1.tar.gz -o swoole.tar.gz && \
-    tar xfz swoole.tar.gz --strip-components=1 -C /usr/src/php/ext/openswoole && \
+    curl -sfL https://github.com/openswoole/ext-openswoole/archive/v22.1.1.tar.gz -o openswoole.tar.gz && \
+    tar xfz openswoole.tar.gz --strip-components=1 -C /usr/src/php/ext/openswoole && \
     docker-php-ext-configure openswoole \
         --enable-http2   \
         --enable-mysqlnd \
         --enable-openssl \
         --enable-sockets --enable-hook-curl --with-postgres && \
     docker-php-ext-install -j$(nproc) --ini-name zzz-docker-php-ext-openswoole.ini openswoole && \
-    rm -f swoole.tar.gz $HOME/.composer/*-old.phar && \
+    rm -f openswoole.tar.gz $HOME/.composer/*-old.phar && \
     docker-php-source delete && \
     apk del .build-deps
 
