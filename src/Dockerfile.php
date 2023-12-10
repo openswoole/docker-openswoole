@@ -20,14 +20,15 @@ class Dockerfile
 {
     protected const ALPINE = 'alpine';
     protected const CLI = 'cli';
-    protected const LATEST_VERSION = 'v22.0.0';
+    protected const LATEST_VERSION = 'v22.1.1';
 
     protected const ALPINE_VERSIONS = [
         // PHP major version => Alpine version,
-        '7.4' => '3.16',
-        '8.0' => '3.16',
+        // '7.4' => '3.16',
+        // '8.0' => '3.16',
         '8.1' => '3.16',
         '8.2' => '3.16',
+        '8.3' => '3.18',
     ];
 
     protected string $basePath;
@@ -214,7 +215,7 @@ class Dockerfile
     }
 
     /**
-     * @see https://github.com/swoole/swoole-src/releases/tag/v4.5.7
+     * @see https://github.com/openswoole/ext-openswoole/releases/tag/v4.5.7
      */
     protected function getContext(string $phpVersion): array
     {

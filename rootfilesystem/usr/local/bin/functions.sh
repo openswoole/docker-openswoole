@@ -22,7 +22,7 @@ function download()
     fi
 
     project_name=$1
-    if [[ "swoole-src" = "${project_name}" ]] ; then
+    if [[ "ext-openswoole" = "${project_name}" ]] ; then
         if [[ ! -d "$(dirname "${SWOOLE_SRC_DIR}")" ]] ; then
             echo "Error: Parent folder \"$(dirname "${SWOOLE_SRC_DIR}")\" does not exist."
             exit 1
@@ -110,12 +110,12 @@ function cleanupSwoole()
 function initSwooleDir()
 {
     if [[ -d /usr/src ]] ; then
-        SWOOLE_SRC_DIR=/usr/src/swoole-src
+        SWOOLE_SRC_DIR=/usr/src/ext-openswoole
     else
         if [[ $(pwd) == "/" ]] ; then
-           SWOOLE_SRC_DIR=/swoole-src
+           SWOOLE_SRC_DIR=/ext-openswoole
         else
-           SWOOLE_SRC_DIR="$(pwd)/swoole-src"
+           SWOOLE_SRC_DIR="$(pwd)/ext-openswoole"
         fi
     fi
 

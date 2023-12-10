@@ -14,7 +14,7 @@ if ! php --ri openswoole ; then
 fi
 
 if [[ ! -d "${SWOOLE_SRC_DIR}" ]] ; then
-    download swoole-src "${SWOOLE_VERSION}"
+    download ext-openswoole "${SWOOLE_VERSION}"
 fi
 
 case "${1}" in
