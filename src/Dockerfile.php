@@ -215,7 +215,7 @@ class Dockerfile
     }
 
     /**
-     * @see https://github.com/swoole/swoole-src/releases/tag/v4.5.7
+     * @see https://github.com/openswoole/ext-openswoole/releases/tag/v4.5.7
      */
     protected function getContext(string $phpVersion): array
     {

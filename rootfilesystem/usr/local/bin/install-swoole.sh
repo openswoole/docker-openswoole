@@ -52,7 +52,7 @@ if [[ "true" = "${DEV_MODE}" ]] ; then
 else
     DEV_OPTIONS=""
 fi
-install swoole-src "${SWOOLE_VERSION}" "$@" ${DEV_OPTIONS}
+install ext-openswoole "${SWOOLE_VERSION}" "$@" ${DEV_OPTIONS}
 if hash docker-php-ext-enable 2>/dev/null ; then
     docker-php-ext-enable --ini-name zzz-docker-php-ext-openswoole.ini openswoole
 else
