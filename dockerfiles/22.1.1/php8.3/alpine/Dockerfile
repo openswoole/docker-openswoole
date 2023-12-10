@@ -3,7 +3,7 @@ FROM php:8.3.0-cli-alpine3.18
 RUN \
     curl -sfL https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer && \
     chmod +x /usr/bin/composer                                                                     && \
-    composer self-update --clean-backups 2.1.6                                    && \
+    composer self-update --clean-backups 2.6.6                                    && \
     apk update && \
     apk add --no-cache linux-headers && \
     apk add --no-cache libstdc++ postgresql-dev libpq && \
