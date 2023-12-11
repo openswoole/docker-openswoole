@@ -16,7 +16,7 @@ to get familiar with the image and _OpenSwoole_.
 
 You can get the image from [Docker Hub](https://hub.docker.com/r/openswoole/swoole).
 
-> Latest released version `:4.12.0` for PHP8.1/PHP8.2
+> Latest released version `:22.1.2` for PHP8.1/PHP8.2/PHP8.3
 
 Table of Contents
 =================
