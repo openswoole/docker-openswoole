@@ -1,12 +1,12 @@
 FROM php:8.2-cli
 
-ENV DEBIAN_FRONTEND noninteractive
-ENV TERM            xterm-color
+ENV DEBIAN_FRONTEND=noninteractive
+ENV TERM=xterm-color
 
 ARG DEV_MODE
-ENV DEV_MODE $DEV_MODE
+ENV DEV_MODE=$DEV_MODE
 
-ENV TINI_VERSION v0.19.0
+ENV TINI_VERSION=v0.19.0
 RUN dpkgArch="$(dpkg --print-architecture)" && curl -s -L -o /tini https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini-${dpkgArch}
 RUN chmod +x /tini
 
@@ -15,7 +15,7 @@ COPY ./rootfilesystem/ /
 RUN \
     curl -sfL https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer && \
     chmod +x /usr/bin/composer                                                                     && \
-    composer self-update 2.6.6                                                    && \
+    composer self-update 2.8.5                                                    && \
     apt-get update              && \
     apt-get install -y             \
         inotify-tools              \
@@ -26,7 +26,7 @@ RUN \
         unzip                      \
         zlib1g-dev                 \
         --no-install-recommends && \
-    install-swoole.sh v22.1.1 \
+    install-swoole.sh v25.2.0 \
         --enable-http2   \
         --enable-mysqlnd \
         --enable-openssl \

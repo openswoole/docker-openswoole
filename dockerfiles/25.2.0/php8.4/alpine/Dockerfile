@@ -1,4 +1,4 @@
-FROM php:8.3-cli-alpine3.18
+FROM php:8.4.2-cli-alpine3.20
 
 RUN \
     curl -sfL https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer && \
