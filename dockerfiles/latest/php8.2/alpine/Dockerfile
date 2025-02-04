@@ -3,7 +3,7 @@ FROM php:8.2-cli-alpine3.16
 RUN \
     curl -sfL https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer && \
     chmod +x /usr/bin/composer                                                                     && \
-    composer self-update --clean-backups 2.6.6                                    && \
+    composer self-update --clean-backups 2.8.5                                    && \
     apk update && \
     apk add --no-cache linux-headers && \
     apk add --no-cache libstdc++ postgresql-dev libpq && \
@@ -11,7 +11,7 @@ RUN \
     docker-php-ext-install sockets && \
     docker-php-source extract && \
     mkdir /usr/src/php/ext/openswoole && \
-    curl -sfL https://github.com/openswoole/ext-openswoole/archive/v22.1.1.tar.gz -o openswoole.tar.gz && \
+    curl -sfL https://github.com/openswoole/ext-openswoole/archive/v25.2.0.tar.gz -o openswoole.tar.gz && \
     tar xfz openswoole.tar.gz --strip-components=1 -C /usr/src/php/ext/openswoole && \
     docker-php-ext-configure openswoole \
         --enable-http2   \
