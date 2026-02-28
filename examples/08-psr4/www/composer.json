@@ -1,8 +1,0 @@
-{
-    "name": "openswoole/examples",
-    "autoload": {
-        "psr-4": {
-            "OpenSwoole\\Examples\\": "src/"
-        }
-    }
-}

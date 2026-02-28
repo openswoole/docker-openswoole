@@ -39,12 +39,12 @@ else
 
     if [[ "${1}" =~ ^(ba|)sh$ ]] ; then
         # To support Docker commands like following:
-        # docker run --rm openswoole/swoole bash -c "composer --version"
-        # docker run --rm openswoole/swoole   sh -c "composer --version"
+        # docker run --rm openswoole/openswoole bash -c "composer --version"
+        # docker run --rm openswoole/openswoole   sh -c "composer --version"
         exec "$@"
     else
         # To support Docker commands invoked in ECS (via command "aws ecs run-task"), kind of like following:
-        # docker run --rm openswoole/swoole "composer --version"
+        # docker run --rm openswoole/openswoole "composer --version"
         exec $@
     fi
 fi
