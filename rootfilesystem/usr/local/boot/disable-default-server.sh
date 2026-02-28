@@ -10,6 +10,6 @@ set -e
 
 if [[ "${BOOT_MODE}" == "SERVICE" ]] ; then
     if [[ "${DISABLE_DEFAULT_SERVER}" = "true" ]] || [[ "${DISABLE_DEFAULT_SERVER}" = "1" ]] ; then
-        disable-supervisord-program.sh swoole
+        disable-supervisord-program.sh openswoole
     fi
 fi

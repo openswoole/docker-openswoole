@@ -11,11 +11,3 @@
 
 # Ignore files under Mac
 .DS_Store
-
-# Ignore 3rd party tools
-/composer.phar
-/vendor/*
-
-# Ignore temporarily files
-/.php_cs.cache
-/.phpunit.result.cache

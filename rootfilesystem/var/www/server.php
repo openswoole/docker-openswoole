@@ -3,16 +3,16 @@
 
 declare(strict_types=1);
 
-use Swoole\Http\Request;
-use Swoole\Http\Response;
-use Swoole\Http\Server;
+use OpenSwoole\Http\Request;
+use OpenSwoole\Http\Response;
+use OpenSwoole\Http\Server;
 
 $http = new Server("0.0.0.0", 9501);
 
 $http->on(
     "start",
     function (Server $http) {
-        echo "Swoole HTTP server is started.\n";
+        echo "OpenSwoole HTTP server is started.\n";
     }
 );
 $http->on(

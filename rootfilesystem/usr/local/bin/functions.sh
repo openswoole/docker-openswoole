@@ -1,39 +1,39 @@
 #!/usr/bin/env bash
 #
-# Environment variables used during Swoole installation:
+# Environment variables used during OpenSwoole installation:
 #     * DEV_MODE
-#     * SWOOLE_SRC_DIR: Points to directory /usr/src/swoole-src.
-#     * SWOOLE_FUNCTIONS_LOADED: TRUE if this script has been loaded.
-#     * SWOOLE_VERSION: Could be one of following:
+#     * OPENSWOOLE_SRC_DIR: Points to directory /usr/src/ext-openswoole.
+#     * OPENSWOOLE_FUNCTIONS_LOADED: TRUE if this script has been loaded.
+#     * OPENSWOOLE_VERSION: Could be one of following:
 #         * master                                   # "master" is a branch name.
 #         * v4.3.3                                   # "v4.3.3" is a tag.
 #         * e52c4b78b4a016fffb049490555a8858ca16edb6 # a full Git commit number.
 #
 
-# Download a Swoole package from Github.
+# Download an OpenSwoole package from Github.
 #
-# @param Swoole package name.
+# @param OpenSwoole package name.
 # @param Version #.
 function download()
 {
-    if [[ -z "${SWOOLE_SRC_DIR}" ]] ; then
-        echo "Error: environment variable SWOOLE_SRC_DIR is empty or not yet set."
+    if [[ -z "${OPENSWOOLE_SRC_DIR}" ]] ; then
+        echo "Error: environment variable OPENSWOOLE_SRC_DIR is empty or not yet set."
         exit 1
     fi
 
     project_name=$1
     if [[ "ext-openswoole" = "${project_name}" ]] ; then
-        if [[ ! -d "$(dirname "${SWOOLE_SRC_DIR}")" ]] ; then
-            echo "Error: Parent folder \"$(dirname "${SWOOLE_SRC_DIR}")\" does not exist."
+        if [[ ! -d "$(dirname "${OPENSWOOLE_SRC_DIR}")" ]] ; then
+            echo "Error: Parent folder \"$(dirname "${OPENSWOOLE_SRC_DIR}")\" does not exist."
             exit 1
         fi
-        cd "$(dirname "${SWOOLE_SRC_DIR}")"
+        cd "$(dirname "${OPENSWOOLE_SRC_DIR}")"
     else
-        if [[ ! -d "${SWOOLE_SRC_DIR}" ]] ; then
-            echo "Error: environment variable SWOOLE_SRC_DIR does not point to a valid folder at \"${SWOOLE_SRC_DIR}\"."
+        if [[ ! -d "${OPENSWOOLE_SRC_DIR}" ]] ; then
+            echo "Error: environment variable OPENSWOOLE_SRC_DIR does not point to a valid folder at \"${OPENSWOOLE_SRC_DIR}\"."
             exit 1
         fi
-        cd "${SWOOLE_SRC_DIR}"
+        cd "${OPENSWOOLE_SRC_DIR}"
     fi
 
     if [[ -z "$2" ]] ; then
@@ -77,9 +77,9 @@ function download()
     cd -
 }
 
-# Install a Swoole package from source code.
+# Install an OpenSwoole package from source code.
 #
-# @param Swoole package name.
+# @param OpenSwoole package name.
 # @param Version #.
 # @param Rest parameters are the configure options.
 function install()
@@ -98,29 +98,29 @@ function install()
     cd "${old_pwd}"
 }
 
-function cleanupSwoole()
+function cleanupOpenswoole()
 {
     if [[ "true" = "${DEV_MODE}" ]] ; then
-        echo "Swoole is installed for development purpose with source code included in folder \"${SWOOLE_SRC_DIR}\"."
+        echo "OpenSwoole is installed for development purpose with source code included in folder \"${OPENSWOOLE_SRC_DIR}\"."
     else
-        rm -rf "${SWOOLE_SRC_DIR}"
+        rm -rf "${OPENSWOOLE_SRC_DIR}"
     fi
 }
 
-function initSwooleDir()
+function initOpenswooleDir()
 {
     if [[ -d /usr/src ]] ; then
-        SWOOLE_SRC_DIR=/usr/src/ext-openswoole
+        OPENSWOOLE_SRC_DIR=/usr/src/ext-openswoole
     else
         if [[ $(pwd) == "/" ]] ; then
-           SWOOLE_SRC_DIR=/ext-openswoole
+           OPENSWOOLE_SRC_DIR=/ext-openswoole
         else
-           SWOOLE_SRC_DIR="$(pwd)/ext-openswoole"
+           OPENSWOOLE_SRC_DIR="$(pwd)/ext-openswoole"
         fi
     fi
 
-    export SWOOLE_SRC_DIR="${SWOOLE_SRC_DIR}"
+    export OPENSWOOLE_SRC_DIR="${OPENSWOOLE_SRC_DIR}"
 }
 
-initSwooleDir
-SWOOLE_FUNCTIONS_LOADED=true
+initOpenswooleDir
+OPENSWOOLE_FUNCTIONS_LOADED=true
