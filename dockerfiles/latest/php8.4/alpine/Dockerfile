@@ -6,8 +6,8 @@ RUN \
     composer self-update --clean-backups 2.8.5                                    && \
     apk update && \
     apk add --no-cache linux-headers && \
-    apk add --no-cache libstdc++ postgresql-dev libpq liburing && \
-    apk add --no-cache --virtual .build-deps $PHPIZE_DEPS curl-dev openssl-dev pcre-dev pcre2-dev zlib-dev liburing-dev && \
+    apk add --no-cache libstdc++ postgresql-dev libpq && \
+    apk add --no-cache --virtual .build-deps $PHPIZE_DEPS curl-dev openssl-dev pcre-dev pcre2-dev zlib-dev && \
     docker-php-ext-install sockets && \
     docker-php-source extract && \
     mkdir /usr/src/php/ext/openswoole && \
@@ -17,7 +17,7 @@ RUN \
         --enable-http2   \
         --enable-mysqlnd \
         --enable-openssl \
-        --enable-sockets --enable-hook-curl --enable-io-uring --with-postgres && \
+        --enable-sockets --enable-hook-curl --with-postgres && \
     docker-php-ext-install -j$(nproc) --ini-name zzz-docker-php-ext-openswoole.ini openswoole && \
     rm -f openswoole.tar.gz $HOME/.composer/*-old.phar && \
     docker-php-source delete && \
