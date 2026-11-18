@@ -26,7 +26,7 @@ RUN \
         unzip                      \
         zlib1g-dev                 \
         --no-install-recommends && \
-    install-openswoole.sh a8b8f0db0d118e7005d0bb796a5a6b39db466c07 \
+    install-openswoole.sh 26.11.0 \
         --enable-http2   \
         --enable-mysqlnd \
         --enable-openssl \

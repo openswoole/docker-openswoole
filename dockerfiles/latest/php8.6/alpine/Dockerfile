@@ -11,7 +11,7 @@ RUN \
     docker-php-ext-install sockets && \
     docker-php-source extract && \
     mkdir /usr/src/php/ext/openswoole && \
-    curl -sfL https://github.com/openswoole/ext-openswoole/archive/a8b8f0db0d118e7005d0bb796a5a6b39db466c07.tar.gz -o openswoole.tar.gz && \
+    curl -sfL https://github.com/openswoole/ext-openswoole/archive/v26.11.0.tar.gz -o openswoole.tar.gz && \
     tar xfz openswoole.tar.gz --strip-components=1 -C /usr/src/php/ext/openswoole && \
     docker-php-ext-configure openswoole \
         --enable-http2   \
