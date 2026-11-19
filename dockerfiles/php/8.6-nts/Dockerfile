@@ -1,4 +1,4 @@
-FROM php:8.6-rc-cli
+FROM php:8.6-cli
 
 LABEL maintainer="Open Swoole Group <hello@openswoole.com>"
 
