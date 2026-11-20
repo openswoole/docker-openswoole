@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ github.repository == 'openswoole/docker-openswoole' }}
     strategy:
-      fail-fast: true
+      fail-fast: false
       matrix:
         php: ["8.3", "8.4", "8.5", "8.6"]
 
@@ -58,7 +58,8 @@ jobs:
         with:
           context: .
           file: dockerfiles/${{ steps.params.outputs.branch_name }}/php${{ matrix.php }}/alpine/Dockerfile
-          platforms: linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64/v8,linux/ppc64le
+          # php:8.6-cli-alpine has no linux/arm/v6 image yet
+          platforms: ${{ matrix.php == '8.6' && 'linux/amd64,linux/arm/v7,linux/arm64/v8,linux/ppc64le' || 'linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64/v8,linux/ppc64le' }}
           push: true
           tags: ${{ steps.params.outputs.full_names }}
 
